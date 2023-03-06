@@ -1,0 +1,15 @@
+.logo-image{
+    width: 110px;
+    height: 67px;
+    filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, 0.637));
+}
+.navbar-styles{
+    background-color: rgba(41, 51, 54, 0.973);
+}
+.button-toggler{
+    border: none;
+    color: rgb(43, 40, 40);
+}
+.button-toggler:focus{
+    box-shadow: none;
+}
