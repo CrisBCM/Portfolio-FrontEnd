@@ -1,0 +1,63 @@
+*{
+    font-family: 'Frank Ruhl Libre', serif;
+}
+.profile-container_about{
+    background: rgb(51,55,69);
+    min-height: 500px;
+}
+.image-container_about{
+    background: rgb(43, 47, 53);
+    max-width:300px;
+    border: 5px solid rgb(51,55,69);
+    box-shadow: 2px 2px 6px rgb(39, 38, 38);
+    margin-top: 20px;
+}
+
+.description-container{
+    margin-bottom: 15px;
+}
+.color2-style{
+    color: #8b7056;
+}
+.image-profile{
+    width: 100%;
+    object-fit: contain;
+}
+.ul-about{
+    list-style-type: none;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-left: 0;
+}
+.data-container{
+    border-top: 1px solid #645d56;
+    border-bottom: 1px solid #645d56;
+    margin-bottom: 20px;
+}
+.color-style{
+    color: rgb(174, 179, 184);
+}
+
+@media screen and (min-width:992px) {
+
+    .data-container{
+        border: none;
+    }
+    .ul-about{
+        border: 1px solid #645d56;
+        width: 100%;
+        justify-content: center;
+        align-content:  space-around;
+    }
+    .li-ul_about{
+        flex-basis: 40%;
+        display: flex;
+        align-items: center;
+    }
+    .info-profile{
+        margin-left: 40px;
+    }
+    .description-text{
+        padding-left: 20px;
+    }
+}
