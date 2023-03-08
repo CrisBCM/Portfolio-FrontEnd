@@ -9,6 +9,11 @@ import { SkillsSectionComponent } from './components/skills-section/skills-secti
 import { ExperienceSectionComponent } from './components/experience-section/experience-section.component';
 import { LoginComponent } from './components/login/login.component';
 import { PortfolioWebComponent } from './components/portfolio-web/portfolio-web.component';
+import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+import { PortfolioService } from './services/portfolio.service';
+import { InterceptorService } from './services/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -22,9 +27,13 @@ import { PortfolioWebComponent } from './components/portfolio-web/portfolio-web.
     PortfolioWebComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [PortfolioService,
+    {provide: HTTP_INTERCEPTORS, useClass:InterceptorService,multi:true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
