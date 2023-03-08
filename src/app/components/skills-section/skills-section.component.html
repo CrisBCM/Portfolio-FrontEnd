@@ -1,1 +1,24 @@
-<p>skills-section works!</p>
+<div class="container-skill">
+    <section id="main" class="container main-container d-flex flex-wrap justify-content-center gap-4 pt-5 pb-5">
+        <h2 class="main-tittle text-center color-style">My Skills</h2>
+        <article *ngFor="let lenguaje of lenguajes" class="article-container mt-5 mt-5">
+            <h3 class="skill-tittle text-center color-style">{{lenguaje.nombre}}</h3>
+            <div class="percentage-container">
+                <div class="percentage">
+                    <div [ngStyle]="{'height':lenguaje.conocimientoPorcentaje}" class="water">
+                        <span class="percentage-num">{{lenguaje.conocimientoPorcentaje}}</span>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                        <div class="bubble"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="drop-shadow"></div>
+        </article>
+    </section>
+</div>

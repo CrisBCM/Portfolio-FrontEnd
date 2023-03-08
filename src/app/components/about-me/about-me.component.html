@@ -1,19 +1,19 @@
 <div class="container-fluid profile-container_about p-0 d-flex">
     <div class="aboutme-container container gap-2 d-flex flex-wrap justify-content-center align-content-center">
         <div class="image-container_about mb-3 align-content-center col-sm-12 col-lg-6">
-            <img class="image-profile" src="../../../assets/images/perfil-image.png" alt="imagen de profile">
+            <img class="image-profile" [src]="miPortfolio.img" alt="profile Image">
         </div>
         <div class="info-profile d-flex flex-column justify-content-center align-items-center flex-wrap col-sm-12 col-lg-6">
             <h2 class="color2-style">About me</h2>
             <div class="description-container d-flex justify-content-center color-style">
-                <p class="m-0 description-text">ME gustan los michis de todos los colores Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe placeat quam quaerat dolor atque! Explicabo iste facere sunt. Accusamus officiis eveniet repudiandae maiores eius vitae at consectetur fuga quidem a.</p>
+                <p class="m-0 description-text">{{miPortfolio.descripcion}}.</p>
             </div> 
             <div class="data-container container p-0 pt-2 pb-2 d-flex">
                 <ul class="d-flex flex-wrap mb-0 ul-about color-style">
-                    <li class="li-ul_about"><span class="color2-style">Nombre: </span>Cristian Cruz Martinez</li>
-                    <li class="li-ul_about"> <span class="color2-style">Email:</span> cristianbcm1999@gmail.com</li>
-                    <li class="li-ul_about"> <span class="color2-style">Edad: </span>23</li>
-                    <li class="li-ul_about"> <span class="color2-style">Telefono: </span>1127078878</li>
+                    <li class="li-ul_about"><span class="color2-style pe-1">Nombre: </span>{{miPortfolio.nombre}}</li>
+                    <li class="li-ul_about"> <span class="color2-style pe-1">Email:</span>{{miPortfolio.email}}</li>
+                    <li class="li-ul_about"> <span class="color2-style pe-1">Edad: </span>{{miPortfolio.edad}}</li>
+                    <li class="li-ul_about"> <span class="color2-style pe-1">Telefono: </span>{{miPortfolio.telefono}}</li>
                 </ul>
             </div>
         </div> 
