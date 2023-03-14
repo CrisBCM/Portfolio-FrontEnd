@@ -12,8 +12,7 @@ export class SkillsSectionComponent implements OnInit {
   porcentaje40:string = "40";
   porcentaje80:string = "80";
 
-  constructor(private datosPortfolio:PortfolioService) {
-   }
+  constructor(private datosPortfolio:PortfolioService) {}
   lenguajes:any;
 
   ngOnInit(): void {

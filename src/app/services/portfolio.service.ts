@@ -17,6 +17,10 @@ export class PortfolioService {
 
   obtenerDatosLenguaje():Observable<any>
   {
-    return this.http.get<any>(this.url+"/traer/lenguajes")
+    return this.http.get<any>(this.url+"/traer/lenguajes");
+  }
+  obtenerDatosExperiencia():Observable<any>
+  {
+    return this.http.get<any>(this.url+"/traer/experiencias");
   }
 }

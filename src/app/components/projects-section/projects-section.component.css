@@ -1,0 +1,17 @@
+.article-project{
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.img-project-container{
+    width: 100%;
+}
+.img-project{
+    width: 100%;
+    height: 287px;
+    object-fit: cover;
+    border-radius: 0.25rem;
+}
+.content-project{
+    padding: 1.25rem;
+}

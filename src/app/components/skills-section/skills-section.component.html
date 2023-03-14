@@ -1,24 +1,23 @@
-<div class="container-skill">
-    <section id="main" class="container main-container d-flex flex-wrap justify-content-center gap-4 pt-5 pb-5">
-        <h2 class="main-tittle text-center color-style">My Skills</h2>
-        <article *ngFor="let lenguaje of lenguajes" class="article-container mt-5 mt-5">
-            <h3 class="skill-tittle text-center color-style">{{lenguaje.nombre}}</h3>
-            <div class="percentage-container">
-                <div class="percentage">
-                    <div [ngStyle]="{'height':lenguaje.conocimientoPorcentaje}" class="water">
-                        <span class="percentage-num">{{lenguaje.conocimientoPorcentaje}}</span>
-                        <div class="bubble"></div>
-                        <div class="bubble"></div>
-                        <div class="bubble"></div>
-                        <div class="bubble"></div>
-                        <div class="bubble"></div>
-                        <div class="bubble"></div>
-                        <div class="bubble"></div>
-                        <div class="bubble"></div>
+<section id="main" class="main-container d-flex flex-wrap align-content-start justify-content-center">
+    <h2 class="main-title text-center color-style mt-5 mb-5">My Skills</h2>
+    <article *ngFor="let lenguaje of lenguajes" class="article-container d-flex flex-wrap align-items-center justify-content-center mb-5">
+        <div class="percentage-container flex-grow-1">
+            <div class="percentage">
+                <div [ngStyle]="{'height':lenguaje.conocimientoPorcentaje}" class="water">
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
+                    <div class="bubble"></div>
                     </div>
                 </div>
             </div>
-            <div class="drop-shadow"></div>
-        </article>
-    </section>
-</div>
+        <div class="text-container d-flex flex-wrap justify-content-center align-items-center">
+            <h3 class="skill-title text-center color-style2">{{lenguaje.nombre}}</h3>
+            <span class="percentage-num">{{lenguaje.conocimientoPorcentaje}}</span>
+        </div>
+    </article>
+</section>
