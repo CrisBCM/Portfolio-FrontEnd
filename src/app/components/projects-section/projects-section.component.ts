@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PortfolioService } from 'src/app/services/portfolio.service';
 
 @Component({
   selector: 'app-projects-section',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsSectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private datosPortfolio:PortfolioService) { }
+
+  arrayProjectos:any;
 
   ngOnInit(): void {
+    this.datosPortfolio.obtenerProjectos().subscribe(data=>{
+      
+      console.log(data);
+
+      this.arrayProjectos = data;
+    })
   }
 
 }

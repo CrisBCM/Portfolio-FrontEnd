@@ -1,37 +1,19 @@
-<div class="bg-secondary">
+<div class="bg-container">
     <section class="container my-5 d-flex flex-wrap">
-        <h2 class="text-center my-5 w-100">Our Best Projects</h2>
-        <p class="text-center mx-auto w-75 mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquam, quisquam! Libero porro aut quod vel ad et necessitatibus placeat, architecto minima quia rem repellendus excepturi quasi vitae corrupti in recusandae!</p>
-        <article class="d-flex flex-column article-project col-lg-4 col-md-12 mb-5">
+        <h2 class="title-style text-center my-5 w-100">Mis mejores projectos</h2>
+        <p class="description-p text-center mx-auto w-75 mb-5">Estos son algunos de los projectos que he realizado en solitario y junto a Argentina Programa.</p>
+        <article *ngFor="let projecto of arrayProjectos" class="d-flex flex-column article-project col-lg-4 col-md-12 mb-5">
             <div class="img-project-container z-depth-1">
-                <img class="img-project" src="https://thumbs.dreamstime.com/b/peque-o-gatito-poco-en-el-fondo-blanco-aislado-gato-lindo-animal-joven-dom%C3%A9stico-nacional-gatitos-piel-felina-pata-peludo-149199391.jpg" alt="gatito">
+                <img class="img-project" [src]="projecto.img" alt="gatito">
             </div>
             <div class="d-flex flex-column align-items-center pb-0 content-project">
-                <h2 class="my-3 text-center">Ttitle of the news</h2>
-                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ipsum, assumenda provident expedita natus et fuga.</p>
-                <a href="#">View Project</a>
+                <h4 class="my-3 text-center title-style">{{projecto.nombre}}</h4>
+                <p class="text-center description-p font-style">{{projecto.descripcion}}</p>
+                <a [href]="projecto.url" class="btn btn-sm btn-style">
+                    <i class="fa-regular fa-folder-open"></i>
+                    View Project
+                </a>
             </div>
         </article>
-        <article class="d-flex flex-column article-project col-lg-4 col-md-12 mb-5">
-            <div class="img-project-container z-depth-1">
-                <img class="img-project" src="https://thumbs.dreamstime.com/b/peque-o-gatito-poco-en-el-fondo-blanco-aislado-gato-lindo-animal-joven-dom%C3%A9stico-nacional-gatitos-piel-felina-pata-peludo-149199391.jpg" alt="gatito">
-            </div>
-            <div class="d-flex flex-column align-items-center pb-0 content-project">
-                <h2 class="my-3 text-center">Ttitle of the news</h2>
-                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ipsum, assumenda provident expedita natus et fuga.</p>
-                <a href="#">View Project</a>
-            </div>
-        </article>
-        <article class="d-flex flex-column article-project col-lg-4 col-md-12 mb-5">
-            <div class="img-project-container z-depth-1">
-                <img class="img-project" src="https://thumbs.dreamstime.com/b/peque-o-gatito-poco-en-el-fondo-blanco-aislado-gato-lindo-animal-joven-dom%C3%A9stico-nacional-gatitos-piel-felina-pata-peludo-149199391.jpg" alt="gatito">
-            </div>
-            <div class="d-flex flex-column align-items-center pb-0 content-project">
-                <h2 class="my-3 text-center">Ttitle of the news</h2>
-                <p class="text-center">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus ipsum, assumenda provident expedita natus et fuga.</p>
-                <a href="#">View Project</a>
-            </div>
-        </article>
-        
     </section>
 </div>

@@ -15,6 +15,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PortfolioService } from './services/portfolio.service';
 import { InterceptorService } from './services/interceptor.service';
 import { ProjectsSectionComponent } from './components/projects-section/projects-section.component';
+import { EducationSectionComponent } from './components/education-section/education-section.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProjectsSectionComponent } from './components/projects-section/projects
     ExperienceSectionComponent,
     LoginComponent,
     PortfolioWebComponent,
-    ProjectsSectionComponent
+    ProjectsSectionComponent,
+    EducationSectionComponent,
   ],
   imports: [
     BrowserModule,

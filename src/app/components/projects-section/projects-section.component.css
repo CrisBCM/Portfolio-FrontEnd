@@ -1,3 +1,16 @@
+h2,h4,p{
+    font-family: 'Frank Ruhl Libre', serif;
+    font-weight: 300;
+}
+.bg-container{
+    background-color:#1B2F33;
+}
+.title-style{
+    color: rgb(172, 180, 185);
+}
+.description-p{
+    color: rgb(186, 191, 194);
+}
 .article-project{
     padding-left: 15px;
     padding-right: 15px;
@@ -6,12 +19,33 @@
 .img-project-container{
     width: 100%;
 }
+.img-project-container:hover{
+    transition: .5;
+    box-shadow: 1px 1px 20px #acacac7a;
+}
 .img-project{
     width: 100%;
     height: 287px;
     object-fit: cover;
-    border-radius: 0.25rem;
+    border-radius: 0.40rem;
 }
 .content-project{
     padding: 1.25rem;
+}
+.text-style{
+    color: #aeb3b4;
+}
+.btn-style{
+    background-color: rgb(87, 82, 78);
+    text-decoration: none;
+    color: rgb(206, 206, 202);
+    font-weight: 400;
+    padding: 0.5rem 1.6rem;
+}
+.btn-style:hover{
+    box-shadow: 0 5px 11px 0 rgba(0,0,0,0.18),
+     0 4px 15px 0 rgba(0,0,0,0.15);
+}
+.fa-regular{
+    margin-right: 0.3rem;
 }

@@ -1,0 +1,19 @@
+<div class="background-container">
+    <section class="container py-5 d-flex flex-wrap gap-5">
+        <h3 class="text-center w-100">Education Section</h3>
+            <article *ngFor="let curso of arrayCursos" class="article-education col-md-3 my-5">
+                <div class="image-container px-5">
+                    <img class="img-article" [src]="curso.img" alt="curso imagen">
+                </div>
+                <div class="description-container">
+                    <h4 class="text-center pb-2 fs-4 color-style2">{{curso.nombre}}</h4>
+                    <p class="text-center px-4 color-style">{{curso.descripcion}}
+                    </p>
+                    <h5 class="text-center fs-6 pt-2 pb-2 mb-0 color-style2">Lenguajes aprendidos</h5>
+                    <ol class="text-center ol-lenguages p-0 pb-4 color-style">
+                        <li *ngFor="let lenguaje of curso.lenguajesAprendidos">{{lenguaje}}</li>
+                    </ol>
+                </div>
+            </article>   
+    </section>
+</div>

@@ -23,4 +23,12 @@ export class PortfolioService {
   {
     return this.http.get<any>(this.url+"/traer/experiencias");
   }
+  obtenerCursos():Observable<any>
+  {
+    return this.http.get<any>(this.url+"/traer/cursos");
+  }
+  obtenerProjectos():Observable<any>
+  {
+    return this.http.get<any>(this.url + "/traer/projectos");
+   }
 }

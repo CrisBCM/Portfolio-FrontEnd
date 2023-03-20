@@ -1,4 +1,4 @@
-*{
+span{
     font-family: 'Frank Ruhl Libre', serif;
 }
 .first-container{
@@ -15,4 +15,13 @@
 }
 .container-descripcion{
     flex-basis: 100%;
+}
+.icon{
+    color: rgb(132, 132, 133);
+    font-size: 2rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+}
+.icon:hover{
+    text-shadow: 2px 2px 2px rgba(148, 58, 17, 0.856);
+    transition:.2s;
 }
