@@ -1,0 +1,18 @@
+.h2-title{
+    margin-bottom: 70px;
+    color: rgba(118, 123, 126, 0.747);
+    font-weight: bold;
+    flex-basis: 100%;
+}
+.work-icon{
+    font-size: 40px;
+    color: rgb(110, 116, 119);
+}
+.color-style{
+    color: rgba(118, 123, 126, 0.747);
+    
+}
+.color-style2{
+    color: #7a7673;
+    font-weight: bold;
+}

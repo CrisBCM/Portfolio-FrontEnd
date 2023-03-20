@@ -3,9 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginComponent } from './components/login/login.component';
 import { PortfolioWebComponent } from './components/portfolio-web/portfolio-web.component';
+import { GuardGuard } from './services/guard.guard';
 
 const routes:Routes = [
-  {path:"portfolio", component:PortfolioWebComponent},
+  {path:"portfolio", component:PortfolioWebComponent, canActivate:[GuardGuard]},
   {path:"iniciar-sesion", component:LoginComponent},
   {path:"", redirectTo:"iniciar-sesion", pathMatch:"full"}
 ]
@@ -17,6 +18,3 @@ const routes:Routes = [
     exports:[RouterModule]
 })
 export class AppRoutingModule { }
-
-
-// , canActivate:[GuardGuard]

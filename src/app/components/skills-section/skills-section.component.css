@@ -10,26 +10,38 @@
 }
 .article-container{
     position: relative;
-    width: 150px;
-    max-width: 150px;
+    min-width: 90px;
+    /* max-width: 150px; */
+    flex-basis: 50%;
+    height: max-content;
 }
 
-.container-skill{
-    min-height: 600px;
-    background: rgb(61,71,83);
-    background: linear-gradient(90deg, rgba(61,71,83,1) 13%, rgba(43,60,77,1) 71%);
+.main-container{
+    width: 100%;
+    min-height: max-content;
 }
 .color-style{
-    color: rgb(173, 179, 182);
+    color: rgba(118, 123, 126, 0.747);
+    font-weight: bold;
 }
-.main-tittle{
+.color-style2{
+    color: #7a7673;
+    font-weight: bold;
+}
+.main-title, .skill-title{
     flex-basis: 100%;
+    height: min-content;
+    margin: 0;
+    
 }
+
 .percentage-container{
-    max-width: 150px;
-    height: 150px;
+    width: 100%;
+    min-width: 90px;
+    max-width: 130px;
+    height: 120px;
     background-color: rgb(82, 116, 116);
-    border-radius: 150px;
+    border-radius: 100%;
     overflow: hidden;
     position: relative;
 }
@@ -37,19 +49,11 @@
     content: "";
     position: absolute;
     height: 100%;
-    width: 150px;
-    border-radius: 150px;
-    box-shadow: inset -0.5px -0.5px 15px 4px #b8b1b191;
-}
-.drop-shadow{
-    height: 50%;
-    width: 100%;
-    max-width: 150px;
-    position: absolute;
-    top: 115px;
+    width:100%;
     border-radius: 100%;
-    box-shadow: inset 1px 1px 30px rgba(0, 0, 0, 0.103);
+    box-shadow: inset -0.5px -0.5px 15px 4px #b8b1b13b;
 }
+
 .percentage{
     width: 100%;
     height: 100%;
@@ -81,15 +85,15 @@
     color: rgb(146, 148, 155);
     position: relative;
     justify-content: center;
-    background: rgba(39, 39, 75, 0.486);
-    background: linear-gradient(0deg, rgba(39,39,75,1) 0%, rgba(109, 149, 181, 0.671) 100%);
+    background: rgba(46, 88, 59, 0.486);
+    background: linear-gradient(0deg, rgba(39,39,75,1) 0%, rgba(38, 90, 79, 0.836) 100%);
     width: 100%;
     animation: flotar 1.5s linear infinite;
     box-sizing: content-box;
     overflow: hidden;
 }
 .percentage-num{
-    padding-left: 10px;
+    color: rgba(118, 123, 126, 0.747);
 }
 .bubble{
     position: absolute;

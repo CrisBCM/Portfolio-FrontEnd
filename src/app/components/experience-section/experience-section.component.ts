@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { PortfolioService } from 'src/app/services/portfolio.service';
 
 @Component({
   selector: 'app-experience-section',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienceSectionComponent implements OnInit {
 
-  constructor() { }
+  constructor(private datosPortfolio:PortfolioService) {}
+
+  listExperiencia:any;
 
   ngOnInit(): void {
+    this.datosPortfolio.obtenerDatosExperiencia().subscribe(data =>{
+      console.log("Array de experiencia: " + JSON.stringify(data));
+
+      this.listExperiencia = data;
+    })
   }
 
 }

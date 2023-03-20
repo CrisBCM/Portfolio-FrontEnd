@@ -1,0 +1,19 @@
+<div class="bg-container">
+    <section class="container my-5 d-flex flex-wrap">
+        <h2 class="title-style text-center my-5 w-100">Mis mejores projectos</h2>
+        <p class="description-p text-center mx-auto w-75 mb-5">Estos son algunos de los projectos que he realizado en solitario y junto a Argentina Programa.</p>
+        <article *ngFor="let projecto of arrayProjectos" class="d-flex flex-column article-project col-lg-4 col-md-12 mb-5">
+            <div class="img-project-container z-depth-1">
+                <img class="img-project" [src]="projecto.img" alt="gatito">
+            </div>
+            <div class="d-flex flex-column align-items-center pb-0 content-project">
+                <h4 class="my-3 text-center title-style">{{projecto.nombre}}</h4>
+                <p class="text-center description-p font-style">{{projecto.descripcion}}</p>
+                <a [href]="projecto.url" class="btn btn-sm btn-style">
+                    <i class="fa-regular fa-folder-open"></i>
+                    View Project
+                </a>
+            </div>
+        </article>
+    </section>
+</div>
