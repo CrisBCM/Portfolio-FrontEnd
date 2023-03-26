@@ -37,10 +37,7 @@ export class LoginComponent implements OnInit {
     {
       event.preventDefault;
       this.autenticationService.IniciarSesion(this.form.value).subscribe(data=>{
-        console.log("form value:" + this.form.value);
-        console.log("DATA:" + JSON.stringify(data));
         this.rutas.navigate(['/portfolio']);
-        
       })
     }
 

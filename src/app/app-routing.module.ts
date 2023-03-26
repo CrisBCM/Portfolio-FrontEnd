@@ -13,7 +13,11 @@ const routes:Routes = [
 
 @NgModule({
   declarations: [],
-  imports: [RouterModule.forRoot(routes),
+  imports: [RouterModule.forRoot(routes, {
+    onSameUrlNavigation:"ignore",
+    anchorScrolling:"enabled",
+    scrollPositionRestoration:"enabled"
+  }),
     HttpClientModule],
     exports:[RouterModule]
 })

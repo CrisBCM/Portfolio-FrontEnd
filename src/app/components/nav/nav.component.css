@@ -13,3 +13,6 @@
 .button-toggler:focus{
     box-shadow: none;
 }
+a{
+    cursor: pointer;
+}

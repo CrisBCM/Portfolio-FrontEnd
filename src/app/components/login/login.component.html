@@ -1,7 +1,7 @@
 <div class="contenedor-form">
     <form [formGroup]="form" class="contenedor-input-form" (ngSubmit)="onEnviar($event)">
       <div class="contenedor-input">
-        <label for="exampleInputEmail1" class="form-label label-color">Usuarios</label>
+        <label for="exampleInputEmail1" class="form-label label-color">Usuario</label>
         <input type="text" formControlName="nombreUsuario" [ngClass]="{'is-invalid': NombreUsuario?.errors && NombreUsuario?.touched, 'is-valid': !NombreUsuario?.errors && NombreUsuario?.touched}" class="input-form" id="exampleInputUsuario1" aria-describedby="emailHelp" placeholder="Ejemplo: 'Pedro123'">
         <div *ngIf="NombreUsuario?.errors && NombreUsuario?.touched">
           <p *ngIf="NombreUsuario?.hasError('required')" class="texto-invalido">
