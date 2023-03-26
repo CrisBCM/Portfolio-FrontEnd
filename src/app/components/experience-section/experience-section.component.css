@@ -16,3 +16,41 @@
     color: #7a7673;
     font-weight: bold;
 }
+.cursor-pointer{
+    cursor: pointer;
+}
+.form-create{
+    border: .9px solid rgba(0, 128, 0, 0.329);
+}
+.input-create{
+    color: rgb(148, 148, 148);
+    border: none;
+    border-radius: .1rem;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(83, 78, 78);
+}
+.input-create:focus-visible{
+    outline: none;
+}
+.input-create:focus{
+    background-color: #2a413980;
+}
+.button-delete,.button-update,.button-create, .button-close{
+    height: 30px;
+    border: none;
+    border-radius: .25rem;
+    color: #7a7673;
+}
+.button-delete{
+    background-color: rgb(119, 54, 34);
+}
+.button-update{
+    background-color: rgb(51, 61, 117);
+}
+.button-create{
+    color: rgb(167, 165, 161);
+    background-color: rgb(51, 110, 64);
+}
+.button-close{
+    background-color: rgb(99, 32, 32);
+}

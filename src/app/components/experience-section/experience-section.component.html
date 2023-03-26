@@ -1,13 +1,58 @@
 <section class="d-flex flex-wrap justify-content-evenly">
     <h2 class="h2-title mt-5 text-center">Experience</h2>
+    <form id="myForm" [formGroup]="form" *ngIf="formSwitchCrear || formSwitchUpdate" class="container d-flex flex-wrap flex-column gap-3 form-create p-4 color-style2 text-center mb-4">
+        <h3 *ngIf="formSwitchCrear">Crear experiencia</h3>
+        <h3 *ngIf="formSwitchUpdate">Actualizar experiencia</h3>
+        <label for="puesto" >
+            Puesto:
+            <input *ngIf="formSwitchCrear" class="input-create" formControlName="puesto" type="text" id="puesto" name="puesto" placeholder="Puesto">
+            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="puesto" type="text" id="puesto" name="puesto" placeholder="{{miExperiencia.puesto}}">
+        </label>
+        <label for="compania">
+            Compania:
+            <input *ngIf="formSwitchCrear" class="input-create" formControlName="compania" type="text" id="compania" name="compania" placeholder="Compania">
+            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="compania" type="text" id="compania" name="compania" placeholder="{{miExperiencia.compania}}">
+        </label>
+        <label for="fechaInicial">
+            Fecha Inicial:
+            <input *ngIf="formSwitchCrear" class="input-create" formControlName="fechaInicial" type="text" id="fechaInicial" name="fechaInicial" placeholder="Fecha inicial">
+            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="fechaInicial" type="text" id="fechaInicial" name="fechaInicial" placeholder="{{miExperiencia.fechaInicio}}">
+        </label>
+        <label for="fechaFinal">
+            Fecha Final:
+            <input *ngIf="formSwitchCrear" class="input-create" formControlName="fechaFinal" type="text" id="fechaFinal" name="fechaFinal" placeholder="Fecha final">
+            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="fechaFinal" type="text" id="fechaFinal" name="fechaFinal" placeholder="{{miExperiencia.fechaFinal}}">
+        </label>
+        <div>
+            <button *ngIf="formSwitchCrear  && obtenerCurrentUserLength() > 1" class="button-create mx-auto me-4" (click)="crearExperiencia($event)" type="submit">Crear</button>
+            <button *ngIf="formSwitchUpdate" class="button-create mx-auto me-4" (click)="updateExperiencia($event)" type="submit">Actualizar</button>
+            <button *ngIf="formSwitchCrear" class="button-close mx-auto" (click)="cerrarFormCrear()" type="button">
+            <i class="fa-solid fa-xmark"></i>
+            </button>
+            <button *ngIf="formSwitchUpdate" class="button-close mx-auto" (click)="cerrarFormUpdate()" type="button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </form>
     <article *ngFor="let exp of listExperiencia" class="exp-container d-flex flex-wrap justify-content-center mb-4 ps-0">
         <div class="icon-container d-flex align-items-center">
             <i class="fa-solid fa-briefcase work-icon pe-4"></i>
         </div>
         <div class="experience-container d-flex flex-column">
-            <span class="fs-6 color-style">{{exp.fechaInicio}} - {{exp.fechaFinal}}</span>
-            <span class="fs-5 color-style2">{{exp.puesto}}</span>
-            <span class="fs-6 color-style">{{exp.compania}}</span>
+            <div *ngIf="exp?.id == selection && obtenerCurrentUserLength() > 1"  class="buttons d-flex gap-3">
+                <button (click)="eliminarExperiencia(exp.id)" type="button" class="button-delete mb-2">Delete</button>
+                <button (click)="abrirFormUpdate()" type="button" class="button-update mb-2">Update <i class="fa-regular fa-pen-to-square"></i></button>
+                <button (click)="onClick(0)" type="button" class="button-close px-2 mb-2">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <div (click)="onClick(exp)" class="d-flex flex-column cursor-pointer">
+                <span class="fs-6 color-style">{{exp.fechaInicio}} - {{exp.fechaFinal}}</span>
+                <span  class="fs-5 color-style2">{{exp.puesto}}</span>
+                <span class="fs-6 color-style">{{exp.compania}}</span>
+            </div>
         </div>
     </article>
+    <button *ngIf="obtenerCurrentUserLength() > 1" (click)="abrirFormCrear()" type="button" class="button-create mt-3 mb-2">Create</button>
 </section>

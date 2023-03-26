@@ -10,7 +10,7 @@ export class AutenticationService {
   url = "https://portfolio-api-3mv6.onrender.com/auth/login"
   currentUserSubject: BehaviorSubject<any>;
   constructor(private http:HttpClient) {
-    console.log("El servicio de autenticacion está corriendo! 9:20 a.m");
+    console.log("El servicio de autenticacion está corriendo!");
     this.currentUserSubject = new BehaviorSubject<any>(JSON.parse(sessionStorage.getItem("currentUser")|| "{}"));
    }
    

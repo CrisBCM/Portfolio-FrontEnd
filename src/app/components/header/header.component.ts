@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  gatito:string = "/assets/images/gatito.jpg"
+  gatito:string = "/assets/images/headerImage.jpg"
 
   constructor() { }
 
