@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { Injectable, Type } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Experiencia } from '../classes/experiencia';
 import { ExperienceSectionComponent } from '../components/experience-section/experience-section.component';
@@ -18,12 +18,12 @@ export class CrudService {
     
   }
 
-  deleteExperience(id: number): Observable<{}> {
+  deleteService(id: number, path:string): Observable<{}> {
     console.log(this.api+"/eliminar/experiencia/"+id);
-    return this.http.delete(`${this.api}/eliminar/experiencia/${id}`, {responseType:"text"});
+    return this.http.delete(`${this.api}${path}${id}`, {responseType:"text"});
   }
   
-  createExperience(exp:Experiencia):Observable<any>{
+  createService(body:any, path:string):Observable<any>{
 
     let currentUser = this.autenticacionServicio.UsuarioAutenticado
 
@@ -36,20 +36,38 @@ export class CrudService {
       responseType: 'text' as 'json'
     };
 
-    console.log(JSON.stringify(exp));
-    console.log(httpOptions);
-
-    return this.http.post<any>(this.api + "/crear/experiencia", JSON.stringify(exp), httpOptions);
+    return this.http.post<any>(`${this.api}${path}`, JSON.stringify(body), httpOptions);
   }
 
-  updateExperience(id:number, exp:Experiencia):Observable<{}>{
+  updateService(id:number,path:string, body:any):Observable<{}>{
+    let bodyKeys = Object.keys(body);
 
-    const params = new HttpParams()
-      .set('puesto',exp.puesto)
-      .set('compania',exp.compania)
-      .set('fechaInicio',exp.fechaInicio)
-      .set('fechaFinal',exp.fechaFinal);
+    let params = new HttpParams();
+    // .set('nombre', "soy nombre")
+    // .set('descripcion', "soy descripcion")
+    // .set('listaDeLenguajes', "SOY el primer lenguaje")
+    // .set('img', "soy la url de img")
+    // .set('listaDeLenguajes', "SOY el segundo lenguaje");
+    
 
-      return this.http.put(`${this.api}/editar/experiencia/${id}`,params, {responseType:"text"})
+    for(let k of bodyKeys){
+
+      if(Array.isArray(body[k])){
+        let array = body[k];
+
+        array.forEach((a:any) => {
+          params = params.append('lenguajesAprendidos', a);
+          console.log("VALORES DEL ARRAY: " + a + k);
+        });
+      }else{
+        params = params.set(k, body[k]);
+      }
+
+      
+
+    }
+
+      console.log(params)
+      return this.http.put(`${this.api}${path}${id}`,params, {responseType:"text"})
     }
 }

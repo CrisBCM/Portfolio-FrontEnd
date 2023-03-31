@@ -1,11 +1,46 @@
 <div class="background-container">
+    <form id="myForm" [formGroup]="form" *ngIf="formSwitchCrear || formSwitchUpdate" class="container d-flex flex-wrap flex-column gap-3 form-create p-4 color-style2 text-center mb-4" (ngSubmit)="updateCurso($event)">
+        <h3 *ngIf="formSwitchCrear">Crear Skill</h3>
+        <h3 *ngIf="formSwitchUpdate">Actualizar Skill</h3>
+        <label for="nombre" >
+            Nombre de curso:
+            <input *ngIf="formSwitchCrear" class="input-create" formControlName="nombre" type="text" id="nombre" name="nombre" placeholder="nombre">
+            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="nombre" type="text" id="nombre" name="nombre" placeholder="">
+        </label>
+        <label for="descripcion">
+            Descripcion:
+            <input *ngIf="formSwitchCrear" class="input-create" formControlName="descripcion" type="text" id="descripcion" name="descripcion" placeholder="descripcion">
+            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="descripcion" type="text" id="descripcion" name="descripcion" placeholder="">
+        </label>
+        <label *ngFor="let leng of lenguajesAprendidos.controls; index as i" id="lenguaje" for="lenguajesAprendidos">
+            Lenguaje:
+            <input *ngIf="formSwitchCrear" class="input-create" formControlName="lenguajesAprendidos" type="text" id="lenguajesAprendidosCrear" name="lenguajesAprendidos" placeholder="lenguajesAprendidos">
+            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="lenguajesAprendidos" type="text" id="lenguajesAprendidosUpdate" name="lenguajesAprendidos" placeholder="">
+            <button class="mx-auto" type="button" (click)="anadirLenguaje($event)">Añadir Lenguaje</button>
+        </label>
+        <label for="img">
+            Url de imagen:
+            <input *ngIf="formSwitchCrear" class="input-create" formControlName="img" type="text" id="img" name="img" placeholder="img">
+            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="img" type="text" id="img" name="img" placeholder="">
+        </label>
+        <div>
+            <button *ngIf="formSwitchCrear  && obtenerCurrentUserLength() > 1" class="button-create mx-auto me-4" (click)="crearCurso($event)" type="submit">Crear</button>
+            <button *ngIf="formSwitchUpdate" class="button-create mx-auto me-4" type="submit">Actualizar</button>
+            <button *ngIf="formSwitchCrear" class="button-close mx-auto" (click)="cerrarFormCrear()" type="button">
+            <i class="fa-solid fa-xmark"></i>
+            </button>
+            <button *ngIf="formSwitchUpdate" class="button-close mx-auto" (click)="cerrarFormUpdate()" type="button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </form>
     <section class="container py-5 d-flex flex-wrap gap-5">
         <h3 class="text-center w-100">Education Section</h3>
             <article *ngFor="let curso of arrayCursos" class="article-education col-md-3 my-5">
-                <div class="image-container px-5">
+                <div class="image-container px-5" (click)="onClick(curso)">
                     <img class="img-article" [src]="curso.img" alt="curso imagen">
                 </div>
-                <div class="description-container">
+                <div class="description-container" (click)="onClick(curso)">
                     <h4 class="text-center pb-2 fs-4 color-style2">{{curso.nombre}}</h4>
                     <p class="text-center px-4 color-style">{{curso.descripcion}}
                     </p>
@@ -14,6 +49,16 @@
                         <li *ngFor="let lenguaje of curso.lenguajesAprendidos">{{lenguaje}}</li>
                     </ol>
                 </div>
-            </article>   
+                <div *ngIf="curso?.id == selection && obtenerCurrentUserLength() > 1"  class="buttons d-flex gap-3 justify-content-center">
+                    <button (click)="eliminarCurso(curso.id)" type="button" class="button-delete mb-2">Delete</button>
+                    <button (click)="abrirFormUpdate()" type="button" class="button-update mb-2">Update <i class="fa-regular fa-pen-to-square"></i></button>
+                    <button (click)="onClick(0)" type="button" class="button-close px-2 mb-2">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+            </article>
+            <div class="w-100 text-center">
+                <button *ngIf="obtenerCurrentUserLength() > 1" (click)="abrirFormCrear()" type="button" class="button-create mt-3 mb-2">Create</button>
+            </div>
     </section>
 </div>

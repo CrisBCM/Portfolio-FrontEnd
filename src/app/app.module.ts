@@ -28,7 +28,7 @@ import { EducationSectionComponent } from './components/education-section/educat
     LoginComponent,
     PortfolioWebComponent,
     ProjectsSectionComponent,
-    EducationSectionComponent,
+    EducationSectionComponent
   ],
   imports: [
     BrowserModule,
