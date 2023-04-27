@@ -1,42 +1,56 @@
 <div class="background-container">
-    <form id="myForm" [formGroup]="form" *ngIf="formSwitchCrear || formSwitchUpdate" class="container d-flex flex-wrap flex-column gap-3 form-create p-4 color-style2 text-center mb-4" (ngSubmit)="updateCurso($event)">
-        <h3 *ngIf="formSwitchCrear">Crear Skill</h3>
-        <h3 *ngIf="formSwitchUpdate">Actualizar Skill</h3>
-        <label for="nombre" >
-            Nombre de curso:
-            <input *ngIf="formSwitchCrear" class="input-create" formControlName="nombre" type="text" id="nombre" name="nombre" placeholder="nombre">
-            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="nombre" type="text" id="nombre" name="nombre" placeholder="">
-        </label>
-        <label for="descripcion">
-            Descripcion:
-            <input *ngIf="formSwitchCrear" class="input-create" formControlName="descripcion" type="text" id="descripcion" name="descripcion" placeholder="descripcion">
-            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="descripcion" type="text" id="descripcion" name="descripcion" placeholder="">
-        </label>
-        <label *ngFor="let leng of lenguajesAprendidos.controls; index as i" id="lenguaje" for="lenguajesAprendidos">
-            Lenguaje:
-            <input *ngIf="formSwitchCrear" class="input-create" formControlName="lenguajesAprendidos" type="text" id="lenguajesAprendidosCrear" name="lenguajesAprendidos" placeholder="lenguajesAprendidos">
-            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="lenguajesAprendidos" type="text" id="lenguajesAprendidosUpdate" name="lenguajesAprendidos" placeholder="">
-            <button class="mx-auto" type="button" (click)="anadirLenguaje($event)">Añadir Lenguaje</button>
-        </label>
-        <label for="img">
-            Url de imagen:
-            <input *ngIf="formSwitchCrear" class="input-create" formControlName="img" type="text" id="img" name="img" placeholder="img">
-            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="img" type="text" id="img" name="img" placeholder="">
-        </label>
-        <div>
-            <button *ngIf="formSwitchCrear  && obtenerCurrentUserLength() > 1" class="button-create mx-auto me-4" (click)="crearCurso($event)" type="submit">Crear</button>
-            <button *ngIf="formSwitchUpdate" class="button-create mx-auto me-4" type="submit">Actualizar</button>
+    <div *ngIf="formSwitchCrear || formSwitchUpdate" class="form-container">
+        <form id="myForm" [formGroup]="form"  class="container d-flex flex-wrap flex-column gap-3 form-create color-style2 text-center mb-4" (ngSubmit)="updateCurso($event)">
             <button *ngIf="formSwitchCrear" class="button-close mx-auto" (click)="cerrarFormCrear()" type="button">
-            <i class="fa-solid fa-xmark"></i>
-            </button>
-            <button *ngIf="formSwitchUpdate" class="button-close mx-auto" (click)="cerrarFormUpdate()" type="button">
                 <i class="fa-solid fa-xmark"></i>
             </button>
-        </div>
-    </form>
-    <section class="container py-5 d-flex flex-wrap gap-5">
+            <button *ngIf="formSwitchUpdate" class="button-close mx-auto" (click)="cerrarFormUpdate()" type="button">
+                    <i class="fa-solid fa-xmark"></i>
+            </button>
+            
+            <h3 *ngIf="formSwitchCrear">Crear Curso</h3>
+            <h3 *ngIf="formSwitchUpdate">Actualizar Curso</h3>
+            <label for="nombre" >
+                Nombre de curso:
+                <input *ngIf="formSwitchCrear" class="input-create" formControlName="nombre" type="text" id="nombre" name="nombre" placeholder="nombre">
+                <input *ngIf="formSwitchUpdate" class="input-create" formControlName="nombre" type="text" id="nombre" name="nombre" placeholder="">
+            </label>
+            <label for="descripcion">
+                Descripcion:
+                <input *ngIf="formSwitchCrear" class="input-create" formControlName="descripcion" type="text" id="descripcion" name="descripcion" placeholder="descripcion">
+                <input *ngIf="formSwitchUpdate" class="input-create" formControlName="descripcion" type="text" id="descripcion" name="descripcion" placeholder="">
+            </label>
+            
+            <div formArrayName="lenguajesAprendidos" class="d-flex justify-content-center align-items-center gap-3">
+                    <div class="d-flex flex-column gap-3"> 
+                        <label *ngFor="let leng of lenguajesAprendidos.controls; let i = index" class="d-flex flex-wrap gap-2">
+                            Lenguaje {{i+1}}:
+                            <input *ngIf="formSwitchCrear" class="input-create" type="text"placeholder="{{i+1}}" formControlName="{{i}}">
+                            <input *ngIf="formSwitchUpdate" class="input-create" type="text"placeholder="{{i+1}}" formControlName="{{i}}">
+                            <button *ngIf="i !== 0" type="button" (click)="quitarLenguaje(i)" class="button-delete">
+                                <i class="fa-solid fa-trash-can"></i>
+                            </button>
+                        </label>
+                        
+                    </div>
+                    <button type="button" (click)="anadirLenguaje()" class="button-create">
+                        <i class="fa-regular fa-square-plus"></i>
+                    </button>
+            </div>
+            <label for="img">
+                Url de imagen:
+                <input *ngIf="formSwitchCrear" class="input-create" formControlName="img" type="text" id="img" name="img" placeholder="img">
+                <input *ngIf="formSwitchUpdate" class="input-create" formControlName="img" type="text" id="img" name="img" placeholder="">
+            </label>
+            <div class="mt-4">
+                <button *ngIf="formSwitchCrear  && obtenerCurrentUserLength() > 1" class="button-create mx-auto me-4" (click)="crearCurso($event)" type="submit">Crear</button>
+                <button *ngIf="formSwitchUpdate" class="button-create mx-auto me-4" type="submit">Actualizar</button>
+            </div>
+        </form>
+    </div>
+    <section *ngIf="!formSwitchCrear || formSwitchUpdate" class="container py-5 d-flex flex-wrap justify-content-center gap-5">
         <h3 class="text-center w-100">Education Section</h3>
-            <article *ngFor="let curso of arrayCursos" class="article-education col-md-3 my-5">
+            <article *ngFor="let curso of arrayCursos" class="article-education my-5">
                 <div class="image-container px-5" (click)="onClick(curso)">
                     <img class="img-article" [src]="curso.img" alt="curso imagen">
                 </div>

@@ -10,7 +10,7 @@ import { AutenticationService } from './autentication.service';
 })
 
 export class CrudService {
-  api:string = "https://portfolio-api-3mv6.onrender.com";
+  api:string = "https://api-portfolio-web.onrender.com";
 
   constructor(private autenticacionServicio:AutenticationService, private readonly http:HttpClient) { }
   ngOnInit(){

@@ -11,7 +11,7 @@
       </div>
       <div class="contenedor-input">
         <label for="exampleInputPassword1" class="form-label label-color">Contraseña</label>
-        <input type="password" formControlName="password" [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 'is-valid': !Password?.errors && Password?.touched}" class="input-form" id="exampleInputPassword1" placeholder="Ejemplo: '520@HJk2ls'">
+        <input type="password" formControlName="password" [ngClass]="{'is-invalid': Password?.errors && Password?.touched, 'is-valid': !Password?.errors && Password?.touched}" class="input-form" id="exampleInputPassword1" placeholder="Ejemplo: '520@HJk'">
         <div *ngIf="Password?.errors && Password?.touched">
           <p *ngIf="Password?.hasError('required')" class="texto-invalido">
             La contraseña es requerida.

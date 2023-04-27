@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class PortfolioService {
 
-  url:string = "https://portfolio-api-3mv6.onrender.com";
+  url:string = "https://api-portfolio-web.onrender.com";
   constructor(private http:HttpClient) { }
   
   obtenerDatosPersona():Observable<any>
