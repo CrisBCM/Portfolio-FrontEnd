@@ -19,6 +19,10 @@
 .cursor-pointer{
     cursor: pointer;
 }
+.border-style{
+    border-bottom: 2px solid rgba(129, 128, 128, 0.486);
+    box-shadow: 0px 10px 10px -15px #4fb39c;
+}
 .form-create{
     border: .9px solid rgba(0, 128, 0, 0.329);
 }

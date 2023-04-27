@@ -3,9 +3,11 @@
 background: linear-gradient(90deg, rgba(50,69,96,1) 0%, rgba(68,82,102,0.9864320728291317) 50%, rgba(50,69,96,1) 100%);
 }
 .article-education{
+    max-width: 324px;
 background: rgba(121, 130, 138, 0.219);
 border-radius: 16px;
 box-shadow: 0 4px 8px rgba(46, 42, 42, 0.384);
+position: relative;
 }
 .article-education:hover, .article-education:focus{
     box-shadow: 0 4px 8px rgba(99, 164, 180, 0.322);
@@ -14,6 +16,10 @@ box-shadow: 0 4px 8px rgba(46, 42, 42, 0.384);
 .image-container{
     height: 80px;
     position: relative;
+    cursor: pointer;
+}
+.description-container{
+    cursor: pointer;
 }
 .img-article{
     width: 100%;
@@ -33,4 +39,55 @@ box-shadow: 0 4px 8px rgba(46, 42, 42, 0.384);
 .color-style2{
     color: rgb(190, 190, 190);
     font-weight: bold;
+}
+.button-delete,.button-update,.button-create, .button-close{
+    height: 30px;
+    border: none;
+    border-radius: .25rem;
+    color: #7a7673;
+}
+button:hover{
+    box-shadow: 1px 1px 4px rgba(0, 0, 0, 0.26);
+}
+
+.form-create{
+    background-color: #16161698;
+    max-width: 500px;
+    padding: 40px 15px;
+    position: relative;
+}
+.form-container{
+    padding-top: 60px;
+    padding-bottom: 60px;
+}
+.input-create{
+    color: rgb(148, 148, 148);
+    border: none;
+    border-radius: .1rem;
+    background-color: transparent;
+    border-bottom: 2px solid rgb(83, 78, 78);
+}
+.input-create:focus-visible{
+    outline: none;
+}
+.input-create:focus{
+    background-color: #2a413980;
+}
+.button-delete{
+    background-color: rgb(119, 54, 34);
+}
+.button-update{
+    background-color: rgb(51, 61, 117);
+}
+.button-create{
+    color: rgb(167, 165, 161);
+    background-color: rgb(51, 110, 64);
+}
+.button-close{
+    background-color: rgb(99, 32, 32);
+    position: absolute;
+    right: 20px;
+    top:20px;
+    height: 25px;
+    width: 25px;
 }

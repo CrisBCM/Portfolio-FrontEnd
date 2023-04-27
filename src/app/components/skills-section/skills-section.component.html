@@ -1,7 +1,38 @@
 <section id="main" class="main-container d-flex flex-wrap align-content-start justify-content-center">
     <h2 class="main-title text-center color-style mt-5 mb-5">My Skills</h2>
+    <form id="myForm" [formGroup]="form" *ngIf="formSwitchCrear || formSwitchUpdate" class="container d-flex flex-wrap flex-column gap-3 form-create p-4 color-style2 text-center mb-4">
+        <h3 *ngIf="formSwitchCrear">Crear Skill</h3>
+        <h3 *ngIf="formSwitchUpdate">Actualizar Skill</h3>
+        <label for="nombre" >
+            Nombre de Lenguaje:
+            <input *ngIf="formSwitchCrear" class="input-create" formControlName="nombre" type="text" id="nombre" name="nombre" placeholder="nombre">
+            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="nombre" type="text" id="nombre" name="nombre" placeholder="">
+        </label>
+        <label for="conocimientoPorcentaje">
+            Porcentaje de conocimiento:
+            <input *ngIf="formSwitchCrear" class="input-create" formControlName="conocimientoPorcentaje" type="text" id="conocimientoPorcentaje" name="conocimientoPorcentaje" placeholder="conocimientoPorcentaje">
+            <input *ngIf="formSwitchUpdate" class="input-create" formControlName="conocimientoPorcentaje" type="text" id="conocimientoPorcentaje" name="conocimientoPorcentaje" placeholder="">
+        </label>
+        <div>
+            <button *ngIf="formSwitchCrear  && obtenerCurrentUserLength() > 1" class="button-create mx-auto me-4" (click)="crearSkill($event)" type="submit">Crear</button>
+            <button *ngIf="formSwitchUpdate" class="button-create mx-auto me-4" (click)="updateSkill($event)" type="submit">Actualizar</button>
+            <button *ngIf="formSwitchCrear" class="button-close mx-auto" (click)="cerrarFormCrear()" type="button">
+            <i class="fa-solid fa-xmark"></i>
+            </button>
+            <button *ngIf="formSwitchUpdate" class="button-close mx-auto" (click)="cerrarFormUpdate()" type="button">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+    </form>
     <article *ngFor="let lenguaje of lenguajes" class="article-container d-flex flex-wrap align-items-center justify-content-center mb-5">
-        <div class="percentage-container flex-grow-1">
+        <div *ngIf="lenguaje?.id == selection && obtenerCurrentUserLength() > 1"  class="buttons d-flex gap-3">
+            <button (click)="eliminarSkill(lenguaje.id)" type="button" class="button-delete mb-2">Delete</button>
+            <button (click)="abrirFormUpdate()" type="button" class="button-update mb-2">Update <i class="fa-regular fa-pen-to-square"></i></button>
+            <button (click)="onClick(0)" type="button" class="button-close px-2 mb-2">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        <div class="percentage-container flex-grow-1" (click)="onClick(lenguaje)">
             <div class="percentage">
                 <div [ngStyle]="{'height':lenguaje.conocimientoPorcentaje}" class="water">
                     <div class="bubble"></div>
@@ -20,4 +51,7 @@
             <span class="percentage-num">{{lenguaje.conocimientoPorcentaje}}</span>
         </div>
     </article>
+    <div class="w-100 text-center">
+        <button *ngIf="obtenerCurrentUserLength() > 1" (click)="abrirFormCrear()" type="button" class="button-create mt-3 mb-2">Create</button>
+    </div>
 </section>

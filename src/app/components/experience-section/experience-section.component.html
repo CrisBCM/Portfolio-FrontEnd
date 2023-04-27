@@ -34,7 +34,7 @@
             </button>
         </div>
     </form>
-    <article *ngFor="let exp of listExperiencia" class="exp-container d-flex flex-wrap justify-content-center mb-4 ps-0">
+    <article *ngFor="let exp of listExperiencia" class="exp-container d-flex flex-wrap justify-content-center mb-4 ps-0 p-2">
         <div class="icon-container d-flex align-items-center">
             <i class="fa-solid fa-briefcase work-icon pe-4"></i>
         </div>
@@ -54,5 +54,7 @@
             </div>
         </div>
     </article>
-    <button *ngIf="obtenerCurrentUserLength() > 1" (click)="abrirFormCrear()" type="button" class="button-create mt-3 mb-2">Create</button>
+    <div class="w-100 text-center mt-auto">
+        <button *ngIf="obtenerCurrentUserLength() > 1" (click)="abrirFormCrear()" type="button" class="button-create mt-3 mb-2">Create</button>
+    </div>
 </section>

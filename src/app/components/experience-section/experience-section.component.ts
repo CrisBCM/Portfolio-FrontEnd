@@ -24,6 +24,10 @@ export class ExperienceSectionComponent implements OnInit {
 
   selection:number = 0;
 
+  pathEliminar:string ="/eliminar/experiencia/";
+  pathCrear:string = "/crear/experiencia"
+  pathUpdate:string ="/editar/experiencia/"
+
   constructor(private datosPortfolio:PortfolioService, private crudService: CrudService, private formBuilder:FormBuilder, private autenticacionServicio: AutenticationService) {
     this.form = this.formBuilder.group(
       {
@@ -37,13 +41,12 @@ export class ExperienceSectionComponent implements OnInit {
 
   obtenerCurrentUserLength(){
     var currentUser = this.autenticacionServicio.UsuarioAutenticado;
-    console.log("SOY CURRENTLENGHT "+ currentUser.authorities.length)
     return currentUser.authorities.length;
   }
 
   eliminarExperiencia(id:number){
     if(confirm('Are you sure?')){
-      this.crudService.deleteExperience(id).subscribe(()=>{
+      this.crudService.deleteService(id, this.pathEliminar).subscribe(()=>{
         this.listExperiencia = this.listExperiencia.filter((experiencia:any) => experiencia.id !== id);
       });      
     }
@@ -84,14 +87,14 @@ export class ExperienceSectionComponent implements OnInit {
     console.log(this.idExp);
   }
 
-  enviarExperiencia(exp:Experiencia){
-    this.crudService.createExperience(exp).subscribe(textData =>{
+  enviarExperiencia(body:any){
+    this.crudService.createService(body, this.pathCrear).subscribe(textData =>{
       this.ngOnInit();
       console.log(textData);
     })
   }
-  actualizarExperiencia(id:number, exp:Experiencia){
-    this.crudService.updateExperience(id, exp).subscribe(() =>{
+  actualizarExperiencia(id:number, body:any){
+    this.crudService.updateService(id,this.pathUpdate, body).subscribe(() =>{
       this.ngOnInit();
     })
   }
@@ -127,8 +130,7 @@ export class ExperienceSectionComponent implements OnInit {
   updateExperiencia(event:Event){
     event.preventDefault;
     let exp = new Experiencia(this.form.value.puesto, this.form.value.compania, this.form.value.fechaInicial,this.form.value.fechaFinal)
-    console.log(this.form.value.puesto, this.form.value.compania, this.form.value.fechaInicial,this.form.value.fechaFinal)
-    console.log(exp);
+    
     this.actualizarExperiencia(this.idExp,exp);
 
     this.formSwitchUpdate = false;
